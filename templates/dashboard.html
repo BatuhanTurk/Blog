@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block anasayfa %}
+<h1>
+Kontrol Paneli
+</h1>
+<small>
+Hoş Geldiniz {{session["username"]}}
+</small>
+<hr>
+<a href="/addarticle" class = "btn btn-dark">Makale Ekle</a>
+<br><br>
+{% if articles %}
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Başlık</th>
+      <th scope="col">Yazar</th>
+      <th scope="col">Tarih</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for article in articles %}
+    
+    <tr>
+        <th scope="roq">{{article.id}}</th>
+        <td><a href="/article/{{article.id}}">{{article.Title}}</a></td>
+        <td>{{article.author}}</td>
+        <td>{{article.created_date}}</td>
+        <td><a href = "/edit/{{article.id}}" class="btn btn-success">Güncelle </a></td>
+        <td><a href = "/delete/{{article.id}}" class="btn btn-danger">Sil</a></td>
+    </tr>
+
+    {% endfor %}
+
+  </tbody>
+</table>
+{% else %}
+<div class="alert alert-danger">
+Makaleniz bulunmamaktadır.
+</div>
+{% endif %}
+{% endblock anasayfa %}

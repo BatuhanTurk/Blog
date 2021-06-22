@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block anasayfa %}
+
+<h1 style="margin = 120px;">Giriş Yap</h1>
+<hr>
+{% from "formhelpers.html" import render_field %}
+
+<form method = "post" class="form-group">
+    {{ render_field(form.username,class="form-control") }}
+    {{ render_field(form.password,class="form-control") }}
+    <button type="submit" class="btn btn-dark">Giriş Yap</button>
+</form>
+
+{% endblock anasayfa %}

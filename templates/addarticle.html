@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block anasayfa %}
+<h3>
+Makale Oluştur
+</h3>
+<hr>
+{% from "formhelpers.html" import render_field %}
+
+<form method="post" >
+{{render_field(form.title,class="form-control")}}
+{{render_field(form.content,class="form-control")}}
+<button type="submit" class="btn btn-danger">Gönder</button>
+</form>
+{% endblock anasayfa %}

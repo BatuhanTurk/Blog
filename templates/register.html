@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block anasayfa %}
+{% from "formhelpers.html" import render_field %}
+<h1 style = " text-align: center;">
+Kayıt Ol
+</h1>
+<hr>
+<form method = "post">
+    {{ render_field(form.name,class="form-group") }}
+    {{ render_field(form.username,class="form-group") }}
+    {{ render_field(form.email,class="form-group") }}
+    {{ render_field(form.password,class="form-group") }}
+    {{ render_field(form.confirm,class="form-group") }}
+    <button type="submit" class="btn btn-dark">Gönder</button>
+</form>
+
+{% endblock anasayfa %}
